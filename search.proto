@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "./friends-proto";
+option go_package = "./search";
 
 service SearchService {
   // Метод получения сообществ в поиске

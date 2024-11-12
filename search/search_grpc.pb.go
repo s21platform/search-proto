@@ -4,7 +4,7 @@
 // - protoc             v5.28.1
 // source: search.proto
 
-package friends_proto
+package search
 
 import (
 	context "context"
