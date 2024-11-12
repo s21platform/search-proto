@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+option go_package = "./friends-proto";
+
+service SearchService {
+  // Метод получения сообществ в поиске
+  rpc GetSociety(GetSocietyIn) returns (GetSocietyOut){};
+}
+
+// Данные запроса собществ
+message GetSocietyIn {
+  // полное имя сообщества или часть имени, по которому будет осуществлен поиск
+  string part_name = 1;
+  int64 limit = 2;
+  int64 offset = 3;
+}
+
+// Объект описывающий сообщество
+message Society {
+  // Имя сообщества
+  string name = 1;
+  // Аватарка сообщества
+  string avatar_link = 2;
+  // Признак публичности сообщества
+  bool is_private = 3;
+  // Описание сообщества
+  string description = 4;
+}
+
+// Объект ответа на запрос поиска
+message GetSocietyOut {
+  // Массив объектов сообществ, удовлетворяющих поску
+  repeated Society societies = 1;
+  // Общее количество сообществ
+  int64 total = 2;
+}
