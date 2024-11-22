@@ -33,7 +33,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | limit | [int64](#int64) |  | количество запрашиваемых записей |
-| total | [int64](#int64) |  | offset записей |
+| offset | [int64](#int64) |  | offset записей |
 
 
 

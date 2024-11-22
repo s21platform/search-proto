@@ -42,7 +42,7 @@ message GetDefaultUsersIn {
   //количество запрашиваемых записей
   int64 limit = 1;
   //offset записей
-  int64 total = 2;
+  int64 offset = 2;
 }
 
 //Объект ответа на запрос пользователей
