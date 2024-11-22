@@ -4,9 +4,12 @@
 ## Table of Contents
 
 - [search.proto](#search-proto)
+    - [GetDefaultUsersIn](#-GetDefaultUsersIn)
+    - [GetDefaultUsersOut](#-GetDefaultUsersOut)
     - [GetSocietyIn](#-GetSocietyIn)
     - [GetSocietyOut](#-GetSocietyOut)
     - [Society](#-Society)
+    - [User](#-User)
   
     - [SearchService](#-SearchService)
   
@@ -18,6 +21,38 @@
 <p align="right"><a href="#top">Top</a></p>
 
 ## search.proto
+
+
+
+<a name="-GetDefaultUsersIn"></a>
+
+### GetDefaultUsersIn
+Объект запроса пользователей
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| limit | [int64](#int64) |  | количество запрашиваемых записей |
+| offset | [int64](#int64) |  | offset записей |
+
+
+
+
+
+
+<a name="-GetDefaultUsersOut"></a>
+
+### GetDefaultUsersOut
+Объект ответа на запрос пользователей
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| users | [User](#User) | repeated | Срез пользователей |
+| total | [int64](#int64) |  | Количество возвращаемых пользователей |
+
+
+
 
 
 
@@ -71,6 +106,23 @@
 
 
 
+
+<a name="-User"></a>
+
+### User
+Объект пользователь
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| nickname | [string](#string) |  | Ник пользователя |
+| uuid | [string](#string) |  | UUID пользователя |
+| avatar_link | [string](#string) |  | ссылка на последний аватар пользователя |
+
+
+
+
+
  
 
  
@@ -86,6 +138,7 @@
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
 | GetSociety | [.GetSocietyIn](#GetSocietyIn) | [.GetSocietyOut](#GetSocietyOut) | Метод получения сообществ в поиске |
+| GetDefaultUsers | [.GetDefaultUsersIn](#GetDefaultUsersIn) | [.GetDefaultUsersOut](#GetDefaultUsersOut) | Метод получения списка users |
 
  
 

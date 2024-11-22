@@ -5,6 +5,8 @@ option go_package = "./search";
 service SearchService {
   // Метод получения сообществ в поиске
   rpc GetSociety(GetSocietyIn) returns (GetSocietyOut){};
+  // Метод получения списка users
+  rpc GetDefaultUsers(GetDefaultUsersIn) returns (GetDefaultUsersOut){};
 }
 
 // Данные запроса собществ
@@ -33,4 +35,30 @@ message GetSocietyOut {
   repeated Society societies = 1;
   // Общее количество сообществ
   int64 total = 2;
+}
+
+// Объект запроса пользователей
+message GetDefaultUsersIn {
+  //количество запрашиваемых записей
+  int64 limit = 1;
+  //offset записей
+  int64 offset = 2;
+}
+
+//Объект ответа на запрос пользователей
+message GetDefaultUsersOut {
+  //Срез пользователей
+  repeated User users = 1;
+  //Количество возвращаемых пользователей
+  int64 total = 2;
+}
+
+//Объект пользователь
+message User {
+  //Ник пользователя
+  string nickname = 1;
+  //UUID пользователя
+  string uuid = 2;
+  //ссылка на последний аватар пользователя
+  string avatar_link = 3;
 }
