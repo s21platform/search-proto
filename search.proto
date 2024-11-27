@@ -6,7 +6,7 @@ service SearchService {
   // Метод получения сообществ в поиске
   rpc GetSociety(GetSocietyIn) returns (GetSocietyOut){};
   // Метод получения списка users
-  rpc GetDefaultUsers(GetDefaultUsersIn) returns (GetDefaultUsersOut){};
+  rpc GetUserWithOffset(GetUserWithOffsetIn) returns (GetUserWithOffsetOut){};
 }
 
 // Данные запроса собществ
@@ -38,15 +38,17 @@ message GetSocietyOut {
 }
 
 // Объект запроса пользователей
-message GetDefaultUsersIn {
+message GetUserWithOffsetIn {
   //количество запрашиваемых записей
   int64 limit = 1;
   //offset записей
   int64 offset = 2;
+  //nickname пользователя которого ищем
+  string nickname = 3;
 }
 
 //Объект ответа на запрос пользователей
-message GetDefaultUsersOut {
+message GetUserWithOffsetOut {
   //Срез пользователей
   repeated User users = 1;
   //Количество возвращаемых пользователей
@@ -61,4 +63,8 @@ message User {
   string uuid = 2;
   //ссылка на последний аватар пользователя
   string avatar_link = 3;
+  // имя пользователя
+  string name = 4;
+  // фамилия пользователя
+  string surname = 5;
 }
