@@ -4,10 +4,10 @@
 ## Table of Contents
 
 - [search.proto](#search-proto)
-    - [GetDefaultUsersIn](#-GetDefaultUsersIn)
-    - [GetDefaultUsersOut](#-GetDefaultUsersOut)
     - [GetSocietyIn](#-GetSocietyIn)
     - [GetSocietyOut](#-GetSocietyOut)
+    - [GetUserWithOffsetIn](#-GetUserWithOffsetIn)
+    - [GetUserWithOffsetOut](#-GetUserWithOffsetOut)
     - [Society](#-Society)
     - [User](#-User)
   
@@ -21,38 +21,6 @@
 <p align="right"><a href="#top">Top</a></p>
 
 ## search.proto
-
-
-
-<a name="-GetDefaultUsersIn"></a>
-
-### GetDefaultUsersIn
-Объект запроса пользователей
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| limit | [int64](#int64) |  | количество запрашиваемых записей |
-| offset | [int64](#int64) |  | offset записей |
-
-
-
-
-
-
-<a name="-GetDefaultUsersOut"></a>
-
-### GetDefaultUsersOut
-Объект ответа на запрос пользователей
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| users | [User](#User) | repeated | Срез пользователей |
-| total | [int64](#int64) |  | Количество возвращаемых пользователей |
-
-
-
 
 
 
@@ -89,6 +57,39 @@
 
 
 
+<a name="-GetUserWithOffsetIn"></a>
+
+### GetUserWithOffsetIn
+Объект запроса пользователей
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| limit | [int64](#int64) |  | количество запрашиваемых записей |
+| offset | [int64](#int64) |  | offset записей |
+| nickname | [string](#string) |  | nickname пользователя которого ищем |
+
+
+
+
+
+
+<a name="-GetUserWithOffsetOut"></a>
+
+### GetUserWithOffsetOut
+Объект ответа на запрос пользователей
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| users | [User](#User) | repeated | Срез пользователей |
+| total | [int64](#int64) |  | Количество возвращаемых пользователей |
+
+
+
+
+
+
 <a name="-Society"></a>
 
 ### Society
@@ -118,6 +119,8 @@
 | nickname | [string](#string) |  | Ник пользователя |
 | uuid | [string](#string) |  | UUID пользователя |
 | avatar_link | [string](#string) |  | ссылка на последний аватар пользователя |
+| name | [string](#string) |  | имя пользователя |
+| surname | [string](#string) |  | фамилия пользователя |
 
 
 
@@ -138,7 +141,7 @@
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
 | GetSociety | [.GetSocietyIn](#GetSocietyIn) | [.GetSocietyOut](#GetSocietyOut) | Метод получения сообществ в поиске |
-| GetDefaultUsers | [.GetDefaultUsersIn](#GetDefaultUsersIn) | [.GetDefaultUsersOut](#GetDefaultUsersOut) | Метод получения списка users |
+| GetUserWithOffset | [.GetUserWithOffsetIn](#GetUserWithOffsetIn) | [.GetUserWithOffsetOut](#GetUserWithOffsetOut) | Метод получения списка users |
 
  
 
