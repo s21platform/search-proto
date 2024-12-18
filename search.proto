@@ -6,7 +6,7 @@ service SearchService {
   // Метод получения сообществ в поиске
   rpc GetSociety(GetSocietyIn) returns (GetSocietyOut){};
   // Метод получения списка users
-  rpc GetUserWithOffset(GetUserWithOffsetIn) returns (GetUserWithOffsetOut){};
+  rpc GetUserWithLimit(GetUserWithLimitIn) returns (GetUserWithLimitOut){};
 }
 
 // Данные запроса собществ
@@ -38,7 +38,7 @@ message GetSocietyOut {
 }
 
 // Объект запроса пользователей
-message GetUserWithOffsetIn {
+message GetUserWithLimitIn {
   //количество запрашиваемых записей
   int64 limit = 1;
   //offset записей
@@ -48,7 +48,7 @@ message GetUserWithOffsetIn {
 }
 
 //Объект ответа на запрос пользователей
-message GetUserWithOffsetOut {
+message GetUserWithLimitOut {
   //Срез пользователей
   repeated User users = 1;
   //Количество возвращаемых пользователей

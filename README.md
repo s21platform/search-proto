@@ -6,8 +6,8 @@
 - [search.proto](#search-proto)
     - [GetSocietyIn](#-GetSocietyIn)
     - [GetSocietyOut](#-GetSocietyOut)
-    - [GetUserWithOffsetIn](#-GetUserWithOffsetIn)
-    - [GetUserWithOffsetOut](#-GetUserWithOffsetOut)
+    - [GetUserWithLimitIn](#-GetUserWithLimitIn)
+    - [GetUserWithLimitOut](#-GetUserWithLimitOut)
     - [Society](#-Society)
     - [User](#-User)
   
@@ -57,9 +57,9 @@
 
 
 
-<a name="-GetUserWithOffsetIn"></a>
+<a name="-GetUserWithLimitIn"></a>
 
-### GetUserWithOffsetIn
+### GetUserWithLimitIn
 Объект запроса пользователей
 
 
@@ -74,9 +74,9 @@
 
 
 
-<a name="-GetUserWithOffsetOut"></a>
+<a name="-GetUserWithLimitOut"></a>
 
-### GetUserWithOffsetOut
+### GetUserWithLimitOut
 Объект ответа на запрос пользователей
 
 
@@ -141,7 +141,7 @@
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
 | GetSociety | [.GetSocietyIn](#GetSocietyIn) | [.GetSocietyOut](#GetSocietyOut) | Метод получения сообществ в поиске |
-| GetUserWithOffset | [.GetUserWithOffsetIn](#GetUserWithOffsetIn) | [.GetUserWithOffsetOut](#GetUserWithOffsetOut) | Метод получения списка users |
+| GetUserWithLimit | [.GetUserWithLimitIn](#GetUserWithLimitIn) | [.GetUserWithLimitOut](#GetUserWithLimitOut) | Метод получения списка users |
 
  
 
