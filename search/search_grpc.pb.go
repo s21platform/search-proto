@@ -25,7 +25,7 @@ type SearchServiceClient interface {
 	// Метод получения сообществ в поиске
 	GetSociety(ctx context.Context, in *GetSocietyIn, opts ...grpc.CallOption) (*GetSocietyOut, error)
 	// Метод получения списка users
-	GetUserWithOffset(ctx context.Context, in *GetUserWithOffsetIn, opts ...grpc.CallOption) (*GetUserWithOffsetOut, error)
+	GetUserWithLimit(ctx context.Context, in *GetUserWithLimitIn, opts ...grpc.CallOption) (*GetUserWithLimitOut, error)
 }
 
 type searchServiceClient struct {
@@ -45,9 +45,9 @@ func (c *searchServiceClient) GetSociety(ctx context.Context, in *GetSocietyIn, 
 	return out, nil
 }
 
-func (c *searchServiceClient) GetUserWithOffset(ctx context.Context, in *GetUserWithOffsetIn, opts ...grpc.CallOption) (*GetUserWithOffsetOut, error) {
-	out := new(GetUserWithOffsetOut)
-	err := c.cc.Invoke(ctx, "/SearchService/GetUserWithOffset", in, out, opts...)
+func (c *searchServiceClient) GetUserWithLimit(ctx context.Context, in *GetUserWithLimitIn, opts ...grpc.CallOption) (*GetUserWithLimitOut, error) {
+	out := new(GetUserWithLimitOut)
+	err := c.cc.Invoke(ctx, "/SearchService/GetUserWithLimit", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -61,7 +61,7 @@ type SearchServiceServer interface {
 	// Метод получения сообществ в поиске
 	GetSociety(context.Context, *GetSocietyIn) (*GetSocietyOut, error)
 	// Метод получения списка users
-	GetUserWithOffset(context.Context, *GetUserWithOffsetIn) (*GetUserWithOffsetOut, error)
+	GetUserWithLimit(context.Context, *GetUserWithLimitIn) (*GetUserWithLimitOut, error)
 	mustEmbedUnimplementedSearchServiceServer()
 }
 
@@ -72,8 +72,8 @@ type UnimplementedSearchServiceServer struct {
 func (UnimplementedSearchServiceServer) GetSociety(context.Context, *GetSocietyIn) (*GetSocietyOut, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetSociety not implemented")
 }
-func (UnimplementedSearchServiceServer) GetUserWithOffset(context.Context, *GetUserWithOffsetIn) (*GetUserWithOffsetOut, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetUserWithOffset not implemented")
+func (UnimplementedSearchServiceServer) GetUserWithLimit(context.Context, *GetUserWithLimitIn) (*GetUserWithLimitOut, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUserWithLimit not implemented")
 }
 func (UnimplementedSearchServiceServer) mustEmbedUnimplementedSearchServiceServer() {}
 
@@ -106,20 +106,20 @@ func _SearchService_GetSociety_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SearchService_GetUserWithOffset_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetUserWithOffsetIn)
+func _SearchService_GetUserWithLimit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserWithLimitIn)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SearchServiceServer).GetUserWithOffset(ctx, in)
+		return srv.(SearchServiceServer).GetUserWithLimit(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/SearchService/GetUserWithOffset",
+		FullMethod: "/SearchService/GetUserWithLimit",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SearchServiceServer).GetUserWithOffset(ctx, req.(*GetUserWithOffsetIn))
+		return srv.(SearchServiceServer).GetUserWithLimit(ctx, req.(*GetUserWithLimitIn))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -136,8 +136,8 @@ var SearchService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _SearchService_GetSociety_Handler,
 		},
 		{
-			MethodName: "GetUserWithOffset",
-			Handler:    _SearchService_GetUserWithOffset_Handler,
+			MethodName: "GetUserWithLimit",
+			Handler:    _SearchService_GetUserWithLimit_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
