@@ -50,13 +50,13 @@ message GetUserWithLimitIn {
 //Объект ответа на запрос пользователей
 message GetUserWithLimitOut {
   //Срез пользователей
-  repeated User users = 1;
+  repeated UserSr users = 1;
   //Количество возвращаемых пользователей
   int64 total = 2;
 }
 
 //Объект пользователь
-message User {
+message UserSr {
   //Ник пользователя
   string nickname = 1;
   //UUID пользователя
