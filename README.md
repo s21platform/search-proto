@@ -9,7 +9,7 @@
     - [GetUserWithLimitIn](#-GetUserWithLimitIn)
     - [GetUserWithLimitOut](#-GetUserWithLimitOut)
     - [Society](#-Society)
-    - [User](#-User)
+    - [UserSr](#-UserSr)
   
     - [SearchService](#-SearchService)
   
@@ -82,7 +82,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| users | [User](#User) | repeated | Срез пользователей |
+| users | [UserSr](#UserSr) | repeated | Срез пользователей |
 | total | [int64](#int64) |  | Количество возвращаемых пользователей |
 
 
@@ -108,9 +108,9 @@
 
 
 
-<a name="-User"></a>
+<a name="-UserSr"></a>
 
-### User
+### UserSr
 Объект пользователь
 
 
