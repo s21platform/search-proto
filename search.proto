@@ -67,4 +67,6 @@ message UserSr {
   string name = 4;
   // фамилия пользователя
   string surname = 5;
+  // friend?
+  bool isFriend = 6;
 }
