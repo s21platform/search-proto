@@ -121,6 +121,7 @@
 | avatar_link | [string](#string) |  | ссылка на последний аватар пользователя |
 | name | [string](#string) |  | имя пользователя |
 | surname | [string](#string) |  | фамилия пользователя |
+| isFriend | [bool](#bool) |  | friend? |
 
 
 
