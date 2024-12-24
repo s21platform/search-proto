@@ -18,7 +18,7 @@ message GetSocietyIn {
 }
 
 // Объект описывающий сообщество
-message Society {
+message SearchSociety {
   // Имя сообщества
   string name = 1;
   // Аватарка сообщества
@@ -32,7 +32,7 @@ message Society {
 // Объект ответа на запрос поиска
 message GetSocietyOut {
   // Массив объектов сообществ, удовлетворяющих поску
-  repeated Society societies = 1;
+  repeated SearchSociety societies = 1;
   // Общее количество сообществ
   int64 total = 2;
 }

@@ -8,7 +8,7 @@
     - [GetSocietyOut](#-GetSocietyOut)
     - [GetUserWithLimitIn](#-GetUserWithLimitIn)
     - [GetUserWithLimitOut](#-GetUserWithLimitOut)
-    - [Society](#-Society)
+    - [SearchSociety](#-SearchSociety)
     - [UserSr](#-UserSr)
   
     - [SearchService](#-SearchService)
@@ -49,7 +49,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| societies | [Society](#Society) | repeated | Массив объектов сообществ, удовлетворяющих поску |
+| societies | [SearchSociety](#SearchSociety) | repeated | Массив объектов сообществ, удовлетворяющих поску |
 | total | [int64](#int64) |  | Общее количество сообществ |
 
 
@@ -90,9 +90,9 @@
 
 
 
-<a name="-Society"></a>
+<a name="-SearchSociety"></a>
 
-### Society
+### SearchSociety
 Объект описывающий сообщество
 
 
