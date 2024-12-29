@@ -6,6 +6,8 @@
 - [search.proto](#search-proto)
     - [GetSocietyIn](#-GetSocietyIn)
     - [GetSocietyOut](#-GetSocietyOut)
+    - [GetSocietyWithLimitIn](#-GetSocietyWithLimitIn)
+    - [GetSocietyWithLimitOut](#-GetSocietyWithLimitOut)
     - [GetUserWithLimitIn](#-GetUserWithLimitIn)
     - [GetUserWithLimitOut](#-GetUserWithLimitOut)
     - [SearchSociety](#-SearchSociety)
@@ -57,6 +59,39 @@
 
 
 
+<a name="-GetSocietyWithLimitIn"></a>
+
+### GetSocietyWithLimitIn
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| limit | [int64](#int64) |  | количество запрашиваемых записей |
+| offset | [int64](#int64) |  | offset записей |
+| name | [string](#string) |  | название сообщества которое ищем |
+
+
+
+
+
+
+<a name="-GetSocietyWithLimitOut"></a>
+
+### GetSocietyWithLimitOut
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| societies | [SearchSociety](#SearchSociety) | repeated | срез сообществ |
+| total | [int64](#int64) |  | Количество найденных сообществ |
+
+
+
+
+
+
 <a name="-GetUserWithLimitIn"></a>
 
 ### GetUserWithLimitIn
@@ -83,7 +118,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | users | [UserSr](#UserSr) | repeated | Срез пользователей |
-| total | [int64](#int64) |  | Количество возвращаемых пользователей |
+| total | [int64](#int64) |  | Количество найденных пользователей |
 
 
 
@@ -143,6 +178,7 @@
 | ----------- | ------------ | ------------- | ------------|
 | GetSociety | [.GetSocietyIn](#GetSocietyIn) | [.GetSocietyOut](#GetSocietyOut) | Метод получения сообществ в поиске |
 | GetUserWithLimit | [.GetUserWithLimitIn](#GetUserWithLimitIn) | [.GetUserWithLimitOut](#GetUserWithLimitOut) | Метод получения списка users |
+| GetSocietyWithLimit | [.GetSocietyWithLimitIn](#GetSocietyWithLimitIn) | [.GetSocietyWithLimitOut](#GetSocietyWithLimitOut) | Метод получения списка society |
 
  
 

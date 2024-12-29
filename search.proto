@@ -7,6 +7,8 @@ service SearchService {
   rpc GetSociety(GetSocietyIn) returns (GetSocietyOut){};
   // Метод получения списка users
   rpc GetUserWithLimit(GetUserWithLimitIn) returns (GetUserWithLimitOut){};
+  // Метод получения списка society
+  rpc GetSocietyWithLimit (GetSocietyWithLimitIn) returns (GetSocietyWithLimitOut){};
 }
 
 // Данные запроса собществ
@@ -51,7 +53,7 @@ message GetUserWithLimitIn {
 message GetUserWithLimitOut {
   //Срез пользователей
   repeated UserSr users = 1;
-  //Количество возвращаемых пользователей
+  //Количество найденных пользователей
   int64 total = 2;
 }
 
@@ -69,4 +71,20 @@ message UserSr {
   string surname = 5;
   // friend?
   bool isFriend = 6;
+}
+
+message GetSocietyWithLimitIn {
+  //количество запрашиваемых записей
+  int64 limit = 1;
+  //offset записей
+  int64 offset = 2;
+  //название сообщества которое ищем
+  string name = 3;
+}
+
+message GetSocietyWithLimitOut{
+  // срез сообществ
+  repeated SearchSociety societies = 1;
+  // Количество найденных сообществ
+  int64 total = 2;
 }
