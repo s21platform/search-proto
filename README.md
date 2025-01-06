@@ -11,6 +11,7 @@
     - [GetUserWithLimitIn](#-GetUserWithLimitIn)
     - [GetUserWithLimitOut](#-GetUserWithLimitOut)
     - [SearchSociety](#-SearchSociety)
+    - [SocietySr](#-SocietySr)
     - [UserSr](#-UserSr)
   
     - [SearchService](#-SearchService)
@@ -84,7 +85,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| societies | [SearchSociety](#SearchSociety) | repeated | срез сообществ |
+| societies | [SocietySr](#SocietySr) | repeated | срез сообществ |
 | total | [int64](#int64) |  | Количество найденных сообществ |
 
 
@@ -137,6 +138,25 @@
 | avatar_link | [string](#string) |  | Аватарка сообщества |
 | is_private | [bool](#bool) |  | Признак публичности сообщества |
 | description | [string](#string) |  | Описание сообщества |
+
+
+
+
+
+
+<a name="-SocietySr"></a>
+
+### SocietySr
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| name | [string](#string) |  | Название сообщества |
+| avatar_link | [string](#string) |  | Ссылка на аватарку сообщества |
+| society_id | [int64](#int64) |  | ID сообщества |
+| isMember | [bool](#bool) |  | Состоит ли пользователь в группе: true - cocтоит, false - не состоит |
+| isPrivate | [bool](#bool) |  | Приватное сообщество: true - да, false - нет |
 
 
 

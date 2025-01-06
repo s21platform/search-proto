@@ -84,7 +84,20 @@ message GetSocietyWithLimitIn {
 
 message GetSocietyWithLimitOut{
   // срез сообществ
-  repeated SearchSociety societies = 1;
+  repeated SocietySr societies = 1;
   // Количество найденных сообществ
   int64 total = 2;
+}
+
+message SocietySr {
+  //Название сообщества
+  string name = 1;
+  //Ссылка на аватарку сообщества
+  string avatar_link = 2;
+  //ID сообщества
+  int64 society_id = 3;
+  //Состоит ли пользователь в группе: true - cocтоит, false - не состоит
+  bool isMember = 4;
+  //Приватное сообщество: true - да, false - нет
+  bool isPrivate = 5;
 }
