@@ -98,4 +98,6 @@ message SocietySr {
   int64 society_id = 3;
   //Состоит ли пользователь в группе: true - cocтоит, false - не состоит
   bool isMember = 4;
+  //Приватное сообщество: true - да, false - нет
+  bool isPrivate = 5;
 }
