@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+option go_package = "./search/new_uuid";
+
+message UpdateUser {
+  string uuid = 1;
+}
+
